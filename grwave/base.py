@@ -11,7 +11,6 @@ R = Path(__file__).parent
 src_dir = R / "src"
 build_dir = R / "build"
 TXW0 = 1e3  # ITU assumes 1kW power
-CORR = 0.5
 
 ninja = shutil.which("ninja")
 
@@ -63,6 +62,7 @@ def grwave(wls: T.Dict[str, T.Any]) -> pd.DataFrame:
     data = data[~data.index.duplicated(keep="last")]
     data.index = data.index.astype(float)
 
-    data["fs"] *= np.sqrt(wls["txwatt"] / TXW0) * CORR
+    # Field Strength is given in dB (uV/m). The reason for this correction is unclear
+    # data["fs"] *= np.sqrt(wls["txwatt"] / TXW0)
 
     return data

@@ -34,8 +34,11 @@ def main():
 
     ax = figure().gca()
     ax.plot(d_km, data["fs"].values)
+    # Set to log scale
+    ax.set_xscale("log") 
+    ax.set_xticks([1, 2, 5, 10, 20, 50, 100, 200, 500])
     ax.set_xlabel("distance [km]")
-    ax.set_ylabel("field strength mV/m")
+    ax.set_ylabel("field strength dB(uV/m)")
     ax.axhline(4, color="red", linestyle="--")
     ax.grid(True)
     # ax.set_ylim((0,25))
