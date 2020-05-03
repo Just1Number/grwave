@@ -13,12 +13,17 @@ except ImportError:
 
 def main():
     wls = {
+        "ans" : 315,
+        "hscale" : 7.35,
+        "ipolrn" : 1,
         "freqMHz": 0.89,
         "sigma": 2e-3,
         "epslon": 4,
         "dmax": 400,
+        "dmin": 1,
         "hrr": 3,
         "htt": 100,
+        "loglin": 0,
         "dstep": 10,
         "txwatt": 50e3,
     }

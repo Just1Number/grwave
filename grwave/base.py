@@ -36,12 +36,17 @@ if not grwave_exe:
 def grwave(wls: T.Dict[str, T.Any]) -> pd.DataFrame:
 
     strin = (
+        f'ans {wls["ans"]}\n'
+        f'hscale {wls["hscale"]}\n'
+        f'ipolrn {wls["ipolrn"]}\n'
         f'freq {wls["freqMHz"]}\n'
         f'sigma {wls["sigma"]}\n'
         f'epslon {wls["epslon"]}\n'
         f'dmax {wls["dmax"]}\n'
+        f'dmin {wls["dmin"]}\n'
         f'hrr {wls["hrr"]}\n'
         f'htt {wls["htt"]}\n'
+        f'loglin {wls["loglin"]}\n'
         f'dstep {wls["dstep"]}\n'
         "GO"
     )
