@@ -16,6 +16,12 @@ Other necessary dominant factors include:
 
 ![image](data/fs.png)
 
+## Dependencies
+### POSIX
+cmake 3.10.2+
+
+[ninja 1.9.0.git.kitware.dyndep-1.jobserver-1](https://github.com/Kitware/ninja/releases)
+
 ## Install
 
 ```sh
