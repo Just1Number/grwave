@@ -62,7 +62,6 @@ def grwave(wls: T.Dict[str, T.Any]) -> pd.DataFrame:
     data = data[~data.index.duplicated(keep="last")]
     data.index = data.index.astype(float)
 
-    # Field Strength is given in dB (uV/m). The reason for this correction is unclear
-    # data["fs"] *= np.sqrt(wls["txwatt"] / TXW0)
+    data["fs"] *= np.sqrt(wls["txwatt"] / TXW0)
 
     return data
