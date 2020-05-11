@@ -53,7 +53,10 @@ def grwave(wls: T.Dict[str, T.Any]) -> pd.DataFrame:
     out = subprocess.check_output([grwave_exe], input=strin, universal_newlines=True)
     # Remove error lines
     splitout = out.split("\n")
-    splitout.remove([x for x in splitout if x[len(x)-3:len(x)] == "(R)"][0])
+    matches = [x for x in splitout if x[len(x)-3:] == "(R)"]
+    for match in matches:
+        splitout.remove(match)
+        
     out = "\n".join(splitout)
     # %%
     data = pd.read_csv(io.StringIO(out), sep=r"\s+", index_col=0, skiprows=31, names=["fs", "pathloss"])
